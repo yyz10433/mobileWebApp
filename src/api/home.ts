@@ -1,7 +1,7 @@
 import { http } from "../axios/axios";
 
 /**
- * 用户信息
+ * 字典表
  */
 export const getUesrInfo: Function = () => {
   return http.request({

@@ -42,11 +42,11 @@ export default defineConfig({
    * vite 跨域配置
    */
   server: {
-    open: true,  // 自启动浏览器
+    open: true,  // 自启动浏览器 
     port: 8080,
     proxy: {
       '/api': {
-        target: 'http://newhope.timing.f3322.net:81/applet/',  // 域名
+        target: 'xxxxx',  // 域名
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         ws: true,
