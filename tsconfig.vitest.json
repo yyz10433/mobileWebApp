@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.app.json",
+  "exclude": [],
+  "include": ["vite.config.*", "vitest.config.*", "cypress.config.*","postcss-px-to-viewport.*"],
+  "compilerOptions": {
+    "composite": true,
+    "lib": [],
+    "types": ["node", "jsdom"]
+  }
+}
