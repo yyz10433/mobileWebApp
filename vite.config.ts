@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import pxtoViewPort from 'postcss-px-to-viewport';
 import { viteMockServe } from 'vite-plugin-mock';   // 自定义mock
+import { resolve } from 'node:path';
 
 
 // https://vitejs.dev/config/
@@ -36,6 +37,15 @@ export default defineConfig({
           exclude: [/node_modules/]
         })
       ]
+    },
+    modules: { //  css模块化 文件以.module.[css|less|scss]结尾  
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      hashPrefix: 'prefix',
+    },
+    preprocessorOptions: {  // 可重写ui框架变量
+      less: {
+        javascriptEnabled: true,
+      }
     }
   },
   /**
@@ -50,6 +60,27 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         ws: true,
+      }
+    }
+  },
+  build: {
+    /**
+     * 打包文件夹配置
+     */
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html')
+      },
+      output: {
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
+        assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+      }
+    },
+    terserOptions: {
+      compress: {
+        drop_console: false, //去掉console
+        drop_debugger: false, // 去掉debugger
       }
     }
   }
