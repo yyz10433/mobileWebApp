@@ -19,10 +19,10 @@ import { useCounterStore } from "../stores/counter";
 class httpRequestClass {
 
   private instance: AxiosInstance;  // axios实例
-  private baseUrl: string = import.meta.env.VITE_BASE_URL as string;  // 全局url
+  private baseUrl: string = import.meta.env.VITE_MOCK_URL as string;  // 全局url 测试用的为本地mock 如需代理换成VITE_BASE_URL即可
   private router = useRouter();
   private method: string = 'get';  // 默认请求方式
-  private cancelToken:any = axios.CancelToken;   // 取消重复请求
+  private cancelToken: any = axios.CancelToken;   // 取消重复请求
   // private store:any = useCounterStore();  // 仓库
 
 
@@ -38,7 +38,14 @@ class httpRequestClass {
       },
       timeout: 1 * 3000,
     });
+    this.init();
+  }
 
+
+  /**
+   * 初始化挂载拦截器
+   */
+  init() {
 
     /**
      * 请求拦截
@@ -51,7 +58,7 @@ class httpRequestClass {
       }
 
       // 将请求存入请求列表
-      config['cancelToken'] = new this.cancelToken((cancel:Function)=>{
+      config['cancelToken'] = new this.cancelToken((cancel: Function) => {
         store.addRequest(cancel);
       })
 
@@ -66,7 +73,7 @@ class httpRequestClass {
       const status: Number = res.data.code;
       const store = useCounterStore();
       console.log(res);
-      
+
       switch (status) {
         case 200:
           return res.data;
@@ -75,7 +82,7 @@ class httpRequestClass {
           return res.data;
         case 1004:
           console.log('认证信息过期');
-          store.addOverdu({ callback : ()=>{ this.request(res.config) } });     
+          store.addOverdu({ callback: () => { this.request(res.config) } });
           return res.data;
         default:
           return res.data;
@@ -85,7 +92,6 @@ class httpRequestClass {
       return Promise.reject(err.data);
     });
   }
-
 
 
   /**
@@ -104,11 +110,11 @@ class httpRequestClass {
     const isToken: string = localStorage.getStorage('token');
     const store = useCounterStore();
     if (!isToken) {
-      /**
-       * 模拟获取token loginCallback方法  重新执行1004接口
-       */
-      store.loginCallback();
       localStorage.setStorage('token', 'eyJ1c2VySWQiOjU0MiwidGltZXN0YW1wIjoxNjcwODI2MTY2MTE2fQ==.925e6d27b39240dee0de03e348100bf0');
+      /**
+      * 模拟获取token loginCallback方法  重新执行1004接口
+      */
+      store.loginCallback();
     }
     return localStorage.getStorage('token');
   }
@@ -120,7 +126,7 @@ class httpRequestClass {
    * @param config { Object } 对象
    * @returns Promise
    */
-  request(config: AxiosRequestConfig) { 
+  request(config: AxiosRequestConfig) {
     return this.instance({
       url: config.url,
       method: this.getDefaultMethod(config.method),

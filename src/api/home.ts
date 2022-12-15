@@ -5,30 +5,29 @@ import { http } from "../axios/axios";
  */
 export const getUesrInfo: Function = () => {
   return http.request({
-    url: 'mc/dict/findByKey?key=send_order_templte',
+    url: '/tableDataOne',
     method: 'get',
   })
 }
 
 
 /**
- * 等级
+ * 获取token
  */
 export const getMilkList: Function = () => {
   return http.request({
-    url: 'milk/shop/rights/find/milk/right',
+    url: '/getUesrToken',
     method: 'get',
   })
 }
 
 
 /**
- * 分类
+ * 获取用户信息
  */
-export const getCategroy: Function = (data: any) => {
+export const getCategroy: Function = () => {
   return http.request({
-    url: 'mc/user/juice/warehouse/detail-v1',
+    url: '/getUesrInfo',
     method: 'get',
-    data
   })
 }

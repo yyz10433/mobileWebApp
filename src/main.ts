@@ -6,21 +6,11 @@ import router from './router'
 
 import './assets/main.css';
 import 'vant/lib/index.css';   // vant必引css样式
+import './mock/index.ts';      // 开发环境测试mock
 
-import { localStorage } from "./util/storage";
+import { Tabbar, TabbarItem } from 'vant';
+import global from './util/global';
+
 
 const app = createApp(App);
-import { Tabbar, TabbarItem } from 'vant';
-
-
-
-/**
- * 全局属性
- */
- app.config.globalProperties.$storage = localStorage;
-
-
-app.use(createPinia()).use(Tabbar).use(TabbarItem).use(router).mount('#app');
-
-
-
+app.use(createPinia()).use(Tabbar).use(TabbarItem).use(router).use(global).mount('#app');

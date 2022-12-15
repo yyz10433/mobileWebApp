@@ -46,7 +46,7 @@ export default defineConfig({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'xxxxx',  // 域名
+        target: 'xxx',  // 域名(本地开发可用)
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         ws: true,

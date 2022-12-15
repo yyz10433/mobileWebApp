@@ -9,12 +9,16 @@ const router = createRouter({
 });
 
 
-
 router.beforeEach((to, from, next) => {
-  /**
-   * 清除请求
-   */
+
   const store = useCounterStore();
+  const isShow = to.meta.isShowTab as boolean;
+
+   // 二级页面隐藏导航栏
+  store.isShowFooterTab(isShow);
+  /**
+   * 切换页面清除请求防止重复请求过多
+   */
   if (store.requestList.length > 0) {
     store.clearReqeustList();
   }

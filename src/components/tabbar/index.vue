@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="store.isShowTab">
     <van-tabbar v-model="active" :placeholder="true">
       <template v-for="(val, index) in tab">
         <van-tabbar-item :icon="val.icon" @click="jumpPage(val.url)" :name="index">{{ val.name }}</van-tabbar-item>
@@ -24,7 +24,6 @@ const tab = store.footerBar;  // 导航
 
 // 选中的路由
 const active = ref(0);
-
 
 /**
  * 监听路由变化 改变导航栏
