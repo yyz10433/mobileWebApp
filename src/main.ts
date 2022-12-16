@@ -8,9 +8,10 @@ import './assets/main.css';
 import 'vant/lib/index.css';   // vant必引css样式
 import './mock/index.ts';      // 开发环境测试mock
 
-import { Tabbar, TabbarItem } from 'vant';
+import { Tabbar, TabbarItem,NavBar,Popup   } from 'vant';
 import global from './util/global';
+import globalComponent from './util/globalComponent';
 
 
 const app = createApp(App);
-app.use(createPinia()).use(Tabbar).use(TabbarItem).use(router).use(global).mount('#app');
+app.use(createPinia()).use(Tabbar).use(TabbarItem).use(NavBar).use(Popup).use(router).use(global).use(globalComponent).mount('#app');

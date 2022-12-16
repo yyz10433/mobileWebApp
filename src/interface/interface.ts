@@ -1,5 +1,5 @@
 /**
- * 公共接口文件
+ * 公共接口文件 主要用于定义引用类型的响应式数据
  */
 
 
@@ -29,6 +29,10 @@ interface tabbar {
   icon: string,
   url: string
 }
+
+
+
+
 
 
 export type {

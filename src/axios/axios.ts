@@ -72,8 +72,6 @@ class httpRequestClass {
     this.instance.interceptors.response.use(async (res: AxiosResponse) => {
       const status: Number = res.data.code;
       const store = useCounterStore();
-      console.log(res);
-
       switch (status) {
         case 200:
           return res.data;

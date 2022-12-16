@@ -1,13 +1,7 @@
 <template>
-    <div>
-        首页
+    <div class="top-bar">
+        
     </div>
-    <button @click="getUesrInfoAsync">字典</button>
-    <button >其他</button>
-    <button class="custom_btn">获取分类id</button>
-    <div>{{ useStore.changeAount }}</div>
-    <div @click="jumpPage">点击跳转二级页面</div>
-    <div>userName : {{ name }}</div>
 </template>
 
 
@@ -21,6 +15,7 @@ import { onMounted,ref } from "vue";
 const useStore = useCounterStore();
 const router = useRouter();
 const name = ref(null);   // 用户姓名
+
 
 /**
  * 跳转二级页面
@@ -44,9 +39,13 @@ onMounted(() => {
 
 </script>
 <style scoped lang="less">
-.custom_btn {
-    width: 300px;
-    height: 100px;
-    background: blue;
+
+.top-bar{
+    width: 100%;
+    height: 88px;
+    background: #1989fa;
 }
+
+
+
 </style>

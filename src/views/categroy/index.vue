@@ -1,6 +1,6 @@
 <template>
     <div>
-      分类
+      <TopBar />
     </div>
 </template>
 

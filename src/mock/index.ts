@@ -29,6 +29,3 @@ Mock.mock('/mock/getUesrToken',userGetToken);
 
 // 获取用户信息
 Mock.mock('/mock/getUesrInfo',getUserInfo);
-
-
-
