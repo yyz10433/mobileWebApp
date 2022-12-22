@@ -1,6 +1,7 @@
 <template>
     <div class="top-bar">
-        
+        <van-button type="primary" @click="addItem">点击此按钮</van-button>
+        <div>{{ list }}</div>
     </div>
 </template>
 
@@ -10,26 +11,31 @@
 import { getUesrInfo } from '../../api/home';
 import { useCounterStore } from "../../stores/counter";
 import { useRouter } from "vue-router";
-import { onMounted,ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 
 const useStore = useCounterStore();
 const router = useRouter();
 const name = ref(null);   // 用户姓名
+const list = reactive([] as Array<number>);
 
 
 /**
  * 跳转二级页面
  */
-const jumpPage = () =>{
+const jumpPage = () => {
     router.push('/MineDetail');
 }
 
 /**
  * 获取用户信息
  */
-const getUesrInfoAsync = async () =>{
+const getUesrInfoAsync = async () => {
     const res = await getUesrInfo();
     name.value = res.data.nickname;
+}
+
+const addItem = () => {
+    list.push(1);
 }
 
 onMounted(() => {
@@ -39,13 +45,5 @@ onMounted(() => {
 
 </script>
 <style scoped lang="less">
-
-.top-bar{
-    width: 100%;
-    height: 88px;
-    background: #1989fa;
-}
-
-
 
 </style>

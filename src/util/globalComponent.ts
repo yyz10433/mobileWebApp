@@ -4,7 +4,7 @@
 
 
 import TopBar from "../components/top-navbar/index.vue";
-import FooterBar from "../components/tabbar/index.vue";
+import Tabbar from "../components/tabbar/index.vue";
 import DiaLog from "../components/dialog/index.vue";
 import type { Component } from "vue";
 
@@ -14,7 +14,7 @@ const components:{
   [propName : string] :Component
 } = {
   TopBar,
-  FooterBar,
+  Tabbar,
   DiaLog
 }
 

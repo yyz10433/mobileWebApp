@@ -1,8 +1,9 @@
 <template>
     <div>
       <div class="open-dialog" @click="openDiaLog">打开弹窗</div>
+      <DiaLog :show="show" position="bottom" @closeDialog="closeDialog" />
     </div>
-    <DiaLog :show="show" position="bottom" @closeDialog="closeDialog" />
+    
 </template>
 
 <script lang='ts' setup>
