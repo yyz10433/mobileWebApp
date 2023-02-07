@@ -2,6 +2,7 @@
     <div class="top-bar">
         <van-button type="primary" @click="addItem">点击此按钮</van-button>
         <div>{{ list }}</div>
+        <van-button type="primary" @click="jumpPage">跳转二级页面</van-button>
     </div>
 </template>
 

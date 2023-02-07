@@ -10,7 +10,6 @@
       <component :is="Component" />
     </transition>
   </router-view>
-  <!-- 底部导航 -->
   <Tabbar />
 </template>
 
