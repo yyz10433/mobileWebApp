@@ -57,7 +57,7 @@ export default defineConfig({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'xxx',  // 域名(本地开发可用)
+        target: 'http://10.11.0.142:8081',  // 域名(本地开发可用)
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         ws: true,

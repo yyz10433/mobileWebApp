@@ -8,6 +8,7 @@ import CateGroy from "../views/categroy/index.vue";
 import Mine from "../views/Mine/index.vue";
 import Cart from "../views/Cart/index.vue";
 import MineDetail from "../views/MineDetail/index.vue";
+import Video from "../views/video/index.vue";
 
 /**
  * 基本页面
@@ -54,6 +55,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MineDetail',
     path: '/MineDetail',
     component: () => MineDetail,
+  },
+  {
+    name: 'video',
+    path: '/video',
+    component: () => Video,
   }
 ];
 

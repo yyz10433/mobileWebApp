@@ -1,11 +1,11 @@
 import { http } from "../axios/axios";
 
 /**
- * 字典表
+ * 获取用户信息
  */
 export const getUesrInfo: Function = () => {
   return http.request({
-    url: '/tableDataOne',
+    url: '/getUserInfo',
     method: 'get',
   })
 }
@@ -23,7 +23,7 @@ export const getMilkList: Function = () => {
 
 
 /**
- * 获取用户信息
+ * 获取分类信息
  */
 export const getCategroy: Function = () => {
   return http.request({

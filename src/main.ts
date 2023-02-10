@@ -8,9 +8,10 @@ import './style/base.less';
 import 'vant/lib/index.css';   // vant必引css样式
 import './mock/index.ts';      // 开发环境测试mock
 
-import { Tabbar, TabbarItem,NavBar,Popup,Button    } from 'vant';
+import { Tabbar, TabbarItem, NavBar, Popup, Button } from 'vant';
 import global from './util/global';
 import globalComponent from './util/globalComponent';
+
 
 
 const app = createApp(App);

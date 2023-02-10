@@ -3,6 +3,11 @@
         <van-button type="primary" @click="addItem">点击此按钮</van-button>
         <div>{{ list }}</div>
         <van-button type="primary" @click="jumpPage">跳转二级页面</van-button>
+
+        <van-button type="primary" @click="getUserInfo">获取用户信息</van-button>
+        <div>
+            <van-button type="primary" @click="goVideoPage">进入微视</van-button>
+        </div>
     </div>
 </template>
 
@@ -30,9 +35,18 @@ const jumpPage = () => {
 /**
  * 获取用户信息
  */
-const getUesrInfoAsync = async () => {
+const getUserInfo = async () => {
     const res = await getUesrInfo();
-    name.value = res.data.nickname;
+    console.log('res',res);
+    
+}
+
+
+/**
+ * 跳转
+ */
+const goVideoPage = () =>{
+    router.push('/Video');
 }
 
 const addItem = () => {
@@ -40,7 +54,6 @@ const addItem = () => {
 }
 
 onMounted(() => {
-    getUesrInfoAsync();
 })
 
 
